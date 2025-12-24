@@ -1,1 +1,11 @@
 
+{
+    "name": "turkiston/bot",
+    "description": "Telegram bot",
+    "require": {
+        "php": "^8.0",
+        "ext-mysqli": "*",
+        "ext-curl": "*",
+        "ext-json": "*"
+    }
+}
