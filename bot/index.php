@@ -1,21 +1,26 @@
 <?php
-////Turkiston_coders manba buni ochrb tawa ishledi
-#tahrirchi:@turon_coders manbasiz kurmay!
-#manba: turkiston_coders obuna buling!	
-#manbasiz kursam xafa qilaman
+//// Turkiston_coders manba
 session_start();
 date_default_timezone_set("Asia/Tashkent");
 $time = date('H:i');
 ob_start();
-define('API_KEY',"TOKEN");
-$admin="id";
-$simkey = "SIMKEY"; #sms-activate.org dan olinga kalit
-$simfoiz = "50"; #simkartalarga qoyiladigan foiz
-$simrub = "130"; #hozirgi rubl kursi
-$channel = "130"; #kanaliz idisi
-$me = "🛎️"; #hohlagan emoji 
-$smm12 = "https://t.me/turkiston_coders/1"; #qullanma xizmatlardan foydalanish vedio url 
-$bot=bot(getMe)->result->username;
+
+// Maxfiy ma'lumotlarni server muhitidan (Environment) olish
+// Agar serverda o'rnatilmagan bo'lsa, xato bermasligi uchun default qiymatlar qo'yildi
+define('API_KEY', getenv('BOT_TOKEN') ?: "TOKEN_YUKLANMAGAN");
+$admin = getenv('ADMIN_ID') ?: "12345678";
+$simkey = getenv('SIM_KEY') ?: "SIMKEY_YUKLANMAGAN"; 
+
+// Raqamli sozlamalar (bularni ham getenv bilan boshqarsa bo'ladi)
+$simfoiz = getenv('SIM_FOIZ') ?: "50"; 
+$simrub = getenv('SIM_RUB') ?: "130"; 
+$channel = getenv('CHANNEL_ID') ?: "@kanal_linki"; 
+
+$me = "🛎️"; 
+$smm12 = "https://t.me/turkiston_coders/1"; 
+
+// Bot funksiyasi va boshqa kodlar pastdan davom etadi...
+
 
 function enc($var,$exception) {
 if($var=="encode"){
@@ -5362,3 +5367,4 @@ Qaytadan urinib koring",null);
 }
 }
 }
+
