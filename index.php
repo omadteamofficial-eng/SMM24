@@ -1,18 +1,19 @@
 <?php
-
-//@QR_Scanner_iBot kodi @Professional_Coders kanalida tarqatildi
-
-//10-iyun sanasi 10:00 da
-
-//@iCoderNet Dan maxsus
-
 ob_start();
 
-define('API_KEY','php_foydali_kodlar');
+// API kalitini muhit o'zgaruvchisidan olish
+// Agar o'zgaruvchi topilmasa, bot ishlamaydi
+$token = getenv('BOT_TOKEN'); 
+
+if (!$token) {
+    die("Xatolik: API_KEY topilmadi!");
+}
+
+define('API_KEY', $token);
 
 $botim = "iCoderNet";
+$admin = array("8125289524"); // Admin ID raqamlari bo'lishi kerak
 
-$admin = array("[*ADMIN*]","php_foydali_kodlar","php_foydali_kodlar");
 
    function del($nomi){
 
